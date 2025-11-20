@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+
+<ng-container *ngIf="compraFinalizada; else carrinhoView">
+  <div class="feedback-container">
+    <h2>Compra Finalizada!</h2>
+    <p class="sucesso">{{ mensagem }}</p>
+    <a routerLink="/products" class="btn-feedback">Continuar a Comprar</a>
+  </div>
+</ng-container>
+
+<ng-template #carrinhoView>
+
+  <p id="mensagem-carrinho" *ngIf="mensagem">{{ mensagem }}</p>
+
+  <div id="carrinho">
+    <h2>Seu Carrinho</h2>
+    <a routerLink="/products" class="link-voltar">&larr; Continuar a Comprar</a>
+    
+    <ul id="lista-carrinho">
+      <li *ngFor="let produto of produtos; let i = index">
+        {{ produto.nome }} - {{ produto.preco | currency:'BRL' }}
+        <button (click)="removerItem(i)" class="btn-remover">Remover</button>
+      </li>
+      <li *ngIf="produtos.length === 0">O carrinho está vazio.</li>
+    </ul>
+    
+    <p id="total">
+      Total: {{ totalGeral | currency:'BRL' }}
+      <span *ngIf="valorFrete > 0">
+        (incluindo frete {{ valorFrete | currency:'BRL' }})
+      </span>
+    </p>
+  </div>
+
+  <div class="container">
+    <div id="frete">
+      <input type="text" placeholder="Digite seu endereço..." #enderecoInput>
+      <button (click)="calcularFrete(enderecoInput.value)">Calcular frete</button>
+    </div>
+    
+    <div id="formaspayment">
+      <button id="pix" (click)="openPixModal()">PIX</button>
+      <button id="cartao" (click)="openCardModal()">Cartão</button>
+    </div>
+  </div>
+
+</ng-template>
+
+
+<div *ngIf="showCardModal" class="modal-overlay" (click)="closeCardModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeCardModal()">&times;</span>
+    <h2>Selecione um Cartão</h2>
+    <p>Clicar no cartão confirmará o pagamento à vista.</p>
+    
+    <div class="card-list">
+      <button *ngFor="let card of cards" class="card-item" (click)="confirmarPagamentoFinal(card)">
+        <span>{{ card.tipo }}</span>
+        <span>{{ card.numero }}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showPixModal" class="modal-overlay" (click)="closePixModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closePixModal()">&times;</span>
+    
+    <h2>Pagamento PIX</h2>
+    <p>Scanear o QR code ou copie o código abaixo.</p>
+    
+    <img src="assets/img/qrcode.png" alt="QR Code PIX" style="width: 200px; margin: 0 auto; border-radius: 8px;">
+    
+    <input placeholder="f47ac10b-58cc-4372-a567-0e02b2c3d479" readonly class="pix-code">
+    
+    <button class="btn-copiar-pix">Copiar Código</button>
+  </div>
+</div>
+

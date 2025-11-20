@@ -1,0 +1,67 @@
+{
+  "tenis": [
+    {
+      "id": "1",
+      "nome": "Tênis lv Masculino - 9.5",
+      "marca": "Louis Vuitton",
+      "categoria": "masculino",
+      "preco": 1299.9,
+      "imagem": "assets/img/lv.jpg",
+      "descricao": "Tênis clássico em couro premium com acabamento sofisticado."
+    },
+    {
+      "id": "2",
+      "nome": "Tênis gucci Feminino - 8",
+      "marca": "Gucci",
+      "categoria": "feminino",
+      "preco": 1599.9,
+      "imagem": "assets/img/guccif.jpg",
+      "descricao": "Tênis feminino com design elegante e detalhes exclusivos."
+    },
+    {
+      "id": "3",
+      "nome": "Tênis prada Edição Limitada - 9",
+      "marca": "Prada",
+      "categoria": "edicao-limitada",
+      "preco": 1999.9,
+      "imagem": "assets/img/img10.avif",
+      "descricao": "Edição limitada com design exclusivo e materiais premium."
+    },
+    {
+      "nome": "Salto Atelier - 89999999",
+      "marca": "Atelier",
+      "categoria": "feminino",
+      "preco": 899.9,
+      "imagem": "assets/img/cm.jpg",
+      "descricao": "Tênis confortável com detalhes artesanais e design moderno.",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "nome": "Tênis Legacy Masculino - 9.5",
+      "marca": "Legacy",
+      "categoria": "masculino",
+      "preco": 1399.9,
+      "imagem": "assets/img/botina.png",
+      "descricao": "Tênis masculino com design clássico e acabamento premium."
+    },
+    {
+      "id": "03e7",
+      "nome": "tenis novinho",
+      "marca": "nike",
+      "categoria": "masculino",
+      "preco": 1234,
+      "imagem": "assets/img/tenisnovo.jpg",
+      "descricao": "65576757667"
+    },
+    {
+      "id": "3db5",
+      "nome": "tenis do gordao",
+      "marca": "Louis Vuitton",
+      "categoria": "masculino",
+      "preco": 12344,
+      "imagem": "assets/img/tenisnovo.jpg",
+      "descricao": "weqwee"
+    }
+  ]
+}

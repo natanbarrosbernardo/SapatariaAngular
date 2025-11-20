@@ -1,0 +1,27 @@
+<header class="header" [class.scrolled]="isHeaderScrolled">
+  <nav class="nav">
+    <a routerLink="/home" class="logo">LS ATELIER</a>
+    
+    <ul class="nav-links">
+      <li><a routerLink="/products" [queryParams]="{ categoria: 'todos' }">Coleções</a></li>
+      <li><a routerLink="/products" [queryParams]="{ categoria: 'masculino' }">Masculino</a></li>
+      <li><a routerLink="/products" [queryParams]="{ categoria: 'feminino' }">Feminino</a></li>
+    </ul>
+
+    <div class="header-icons">
+      
+      <a routerLink="/cart" class="icon" title="Carrinho">Carrinho</a>
+ 
+      <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/login" class="icon" title="Login">Login</a>
+        <a routerLink="/register" class="icon" title="Registar">Registar</a>
+      </ng-container>
+ 
+      <ng-container *ngIf="isLoggedIn">
+        <a routerLink="/admin/tenis/novo" class="icon" title="Anunciar Ténis">Anunciar</a>
+        <a (click)="logout()" href="#" class="icon" title="Logout">Sair</a>
+      </ng-container>
+      
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+
+:root {
+  --fundo-creme: #fdfdfa;
+  --texto-carvao: #1a1a1a;
+  --destaque-vinho: #6a040f;
+  --font-body: 'Roboto', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-logo: 'Cinzel', serif;
+}
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-body);
+  font-weight: 300; 
+  background-color: var(--fundo-creme);
+  color: var(--texto-carvao);
+  min-height: 100vh;
+}

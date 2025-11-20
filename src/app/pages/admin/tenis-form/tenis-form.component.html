@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<div class="form-container">
+  
+  <h2>{{ isEditMode ? 'Editar Ténis' : 'Cadastrar Novo Ténis' }}</h2>
+  
+  <div *ngIf="mensagemSucesso" class="sucesso">
+    {{ mensagemSucesso }}
+  </div>
+
+  <form [formGroup]="tenisForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input id="nome" formControlName="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="marca">Marca:</label>
+      <input id="marca" formControlName="marca">
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" formControlName="categoria">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="edicao-limitada">Edição Limitada</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="preco">Preço (R$):</label>
+      <input id="preco" type="number" formControlName="preco">
+    </div>
+
+     <div class="form-group">
+      <label for="imagem">Caminho da Imagem:</label>
+      <input id="imagem" formControlName="imagem">
+    </div>
+
+    <div class="form-group">
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" formControlName="descricao" rows="4"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="tenisForm.invalid">Salvar</button>
+      <a routerLink="/admin/tenis" class="btn-cancelar">Voltar para Lista</a>
+    </div>
+
+  </form>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar> <div class="container">
+    <h2>Gestão de Ténis</h2>
+    
+    <a routerLink="/admin/tenis/novo" class="btn-novo">Adicionar Novo Ténis</a>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Marca</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tenis of tenisLista">
+          <td>{{ tenis.nome }}</td>
+          <td>{{ tenis.marca }}</td>
+          <td>{{ tenis.categoria }}</td>
+          <td>{{ tenis.preco | currency:'BRL' }}</td>
+          <td class="acoes">
+            
+            <a [routerLink]="['/admin/tenis/editar', tenis.id]" class="btn-editar">Editar</a>
+            
+            <button (click)="excluir(tenis.id)" class="btn-excluir">Excluir</button>
+  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <app-footer></app-footer> ```
+  
